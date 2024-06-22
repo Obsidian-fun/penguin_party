@@ -1,8 +1,8 @@
 ## Penguin Party 🥂
 
-<div style= "text-align:c enter">
-![Penguin Party](./assets/penguin_party.gif)
-</div>
+<p align="center"> 
+![Penguin Party](./assets/penguin_party.gif "Penguin Party!")
+</p>
 
 An amalgamation of all things linux for personal reference and understanding,
 
