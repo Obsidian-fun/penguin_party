@@ -1,7 +1,8 @@
 ## Penguin Party 🥂
 
 <p align="center"> 
-![Penguin Party](./assets/penguin_party.gif "Penguin Party!")
+![Penguin Party](./assets/penguin_party.gif 
+"Penguin Party!")
 </p>
 
 An amalgamation of all things linux for personal reference and understanding,
