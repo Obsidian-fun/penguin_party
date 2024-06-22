@@ -1,0 +1,5 @@
+
+# All running processes on a system
+ps -e pid,ppid,command
+
+
