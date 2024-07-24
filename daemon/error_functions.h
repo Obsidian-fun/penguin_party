@@ -1,4 +1,4 @@
-
+/* Book: Linux Programming Interface, Pg:52 */
 
 #ifndef ERROR_FUNCTIONS_H
 #define ERROR_FUNCTIONS_H
