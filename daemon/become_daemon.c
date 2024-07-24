@@ -42,7 +42,22 @@ int becomeDaemon (int flags) {   	/* returns 0 on success -1 on error*/
 		}
 	}
 
-	if (!(flags & BD_NO_REOPEN_STD_FDS))	
+	if (!(flags & BD_NO_REOPEN_STD_FDS)) {
+		close(STDIN_FILENO); 								/*reopen standard fd's to /dev/null */
 
+		fd = open("/dev/null",O_RDWR);
 
+		if (fd != STDIN_FILENO) {
+			return -1;												/*fd should be 0*/
+		}		
+
+		if (dup2(STDIN_FILENO, STDOUT_FILENO) != STDOUT_FILENO) {
+			return -1;
+		}
+
+		if (dup2(STDIN_FILENO, STDERR_FILENO) != STDERR_FILENO) {
+			return -1;
+		}
+
+	}
 }
