@@ -18,11 +18,31 @@ int becomeDaemon (int flags) {   	/* returns 0 on success -1 on error*/
 		return -1;
 	}
 
-	switch(fork()) {
+	switch(fork()) {								/*Ensure we are not leader of new session*/
 		case -1: return -1;
 		case 0: break;
 	  default: _exit(EXIT_SUCCESS);
 	}	
+
+	if (!(flags & BD_NO_UMASKO)) {	/*clear file mode creation mask*/
+		umask(0);
+	}
+
+	if (!(flags & BD_NO_CHDIR)) {  /*change to root directory*/
+		chdir('/');
+	}
+
+	if (!(flags & BD_NO_CLOSE_FILES)) { /*close all open files*/
+		maxfd = sysconf(_SC_OPEN_MAX);
+		if (maxfd == -1) {								/*limit is indeterminate*/
+			maxfd = BD_MAX_CLOSE;						/*taking a guess*/
+		}
+		for (fd=0; fd < maxfd; fd ++) {
+			close(fd);
+		}
+	}
+
+	
 
 
 }
