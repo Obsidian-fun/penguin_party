@@ -58,6 +58,7 @@ int becomeDaemon (int flags) {   	/* returns 0 on success -1 on error*/
 		if (dup2(STDIN_FILENO, STDERR_FILENO) != STDERR_FILENO) {
 			return -1;
 		}
-
 	}
+
+	return 0;
 }
