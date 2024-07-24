@@ -17,5 +17,5 @@
 
 typedef enum { FALSE, TRUE } Boolean;
 
-#define min() ((m < n)? m:n)
-#define max()
+#define min(m,n) (m < n? m:n)
+#define max(m,n) (m > n? m:n)
