@@ -42,7 +42,7 @@ int becomeDaemon (int flags) {   	/* returns 0 on success -1 on error*/
 		}
 	}
 
-	
+	if (!(flags & BD_NO_REOPEN_STD_FDS))	
 
 
 }
