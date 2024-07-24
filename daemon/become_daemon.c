@@ -14,7 +14,7 @@ int becomeDaemon (int flags) {   	/* returns 0 on success -1 on error*/
 		default: _exit(EXIT_SUCCESS);	/*While parent terminates*/
 	}
 
-	if (setsid == -1) {							/*Become leader of new session*/
+	if (setsid() == -1) {							/*Become leader of new session*/
 		return -1;
 	}
 
@@ -29,7 +29,7 @@ int becomeDaemon (int flags) {   	/* returns 0 on success -1 on error*/
 	}
 
 	if (!(flags & BD_NO_CHDIR)) {  /*change to root directory*/
-		chdir('/');
+		chdir("/");
 	}
 
 	if (!(flags & BD_NO_CLOSE_FILES)) { /*close all open files*/
